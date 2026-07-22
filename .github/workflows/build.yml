@@ -19,7 +19,7 @@ jobs:
       - name: Sync Capacitor
         run: npx cap sync android
       - name: Decode keystore
-        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > android/app/thunderblitz-release.keystore
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d --ignore-garbage > android/app/thunderblitz-release.keystore
       - name: Build signed APK
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
