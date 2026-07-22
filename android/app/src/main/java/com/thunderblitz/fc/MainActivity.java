@@ -9,11 +9,10 @@ public class MainActivity extends BridgeActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         WebSettings settings = this.bridge.getWebView().getSettings();
-        settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(true);
+        settings.setUseWideViewPort(false);
+        settings.setLoadWithOverviewMode(false);
         settings.setSupportZoom(false);
         settings.setTextZoom(100);
-        this.bridge.getWebView().setInitialScale(0);
     }
 
     @Override
