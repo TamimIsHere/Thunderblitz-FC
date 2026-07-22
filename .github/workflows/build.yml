@@ -19,7 +19,7 @@ jobs:
       - name: Sync Capacitor
         run: npx cap sync android
       - name: Decode keystore
-        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d --ignore-garbage > android/app/thunderblitz-release.keystore
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d --ignore-garbage > $GITHUB_WORKSPACE/android/app/thunderblitz-release.keystore
       - name: Build signed APK
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
@@ -29,7 +29,7 @@ jobs:
           cd android
           chmod +x gradlew
           ./gradlew assembleRelease \
-            -Pandroid.injected.signing.store.file=thunderblitz-release.keystore \
+            -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/android/app/thunderblitz-release.keystore \
             -Pandroid.injected.signing.store.password=$KEYSTORE_PASSWORD \
             -Pandroid.injected.signing.key.alias=$KEY_ALIAS \
             -Pandroid.injected.signing.key.password=$KEY_PASSWORD
