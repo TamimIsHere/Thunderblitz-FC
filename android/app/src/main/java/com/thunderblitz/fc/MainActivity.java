@@ -5,7 +5,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.getcapacitor.BridgeActivity;
-import com.getcapacitor.plugin.SplashScreen;
 
 public class MainActivity extends BridgeActivity {
     @Override
@@ -22,7 +21,10 @@ public class MainActivity extends BridgeActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                bridge.getApp().getPlugin("SplashScreen");
+                view.evaluateJavascript(
+                    "if (window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.SplashScreen) { window.Capacitor.Plugins.SplashScreen.hide(); }",
+                    null
+                );
             }
         });
     }
