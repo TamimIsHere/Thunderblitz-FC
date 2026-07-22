@@ -1,0 +1,9 @@
+{
+  "appId": "com.thunderblitz.fc",
+  "appName": "ThunderBlitz FC",
+  "webDir": "www",
+  "server": {
+    "url": "https://thunderblitz-fc.web.app",
+    "cleartext": false
+  }
+}
