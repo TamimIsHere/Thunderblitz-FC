@@ -12,6 +12,10 @@ jobs:
       - uses: android-actions/setup-android@v3
       - name: Install dependencies
         run: npm install
+      - name: Install assets generator
+        run: npm install @capacitor/assets --save-dev
+      - name: Generate icons
+        run: npx capacitor-assets generate --android --iconBackgroundColor '#0a0a0a' --iconBackgroundColorDark '#0a0a0a' --assetPath assets
       - name: Sync Capacitor
         run: npx cap sync android
       - name: Build APK
