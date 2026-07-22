@@ -12,6 +12,8 @@ public class MainActivity extends BridgeActivity {
         settings.setUseWideViewPort(true);
         settings.setLoadWithOverviewMode(true);
         settings.setSupportZoom(false);
+        settings.setTextZoom(100);
+        this.bridge.getWebView().setInitialScale(0);
     }
 
     @Override
