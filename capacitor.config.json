@@ -5,5 +5,8 @@
   "server": {
     "url": "https://thunderblitz-fc.web.app",
     "cleartext": false
+  },
+  "android": {
+    "webContentsDebuggingEnabled": true
   }
 }
