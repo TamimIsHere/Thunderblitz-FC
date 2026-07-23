@@ -1,6 +1,8 @@
 package com.thunderblitz.fc;
 
 import android.Manifest;
+import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.webkit.WebSettings;
@@ -8,13 +10,18 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import android.content.pm.PackageManager;
 import com.getcapacitor.BridgeActivity;
 
 public class MainActivity extends BridgeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.thunder);
+        if (mp != null) {
+            mp.start();
+            mp.setOnCompletionListener(MediaPlayer::release);
+        }
 
         WebSettings settings = this.bridge.getWebView().getSettings();
         settings.setUseWideViewPort(false);
