@@ -2,7 +2,6 @@ package com.thunderblitz.fc;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.webkit.WebSettings;
@@ -16,12 +15,6 @@ public class MainActivity extends BridgeActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        MediaPlayer mp = MediaPlayer.create(this, R.raw.thunder);
-        if (mp != null) {
-            mp.start();
-            mp.setOnCompletionListener(MediaPlayer::release);
-        }
 
         WebSettings settings = this.bridge.getWebView().getSettings();
         settings.setUseWideViewPort(false);
@@ -45,16 +38,6 @@ public class MainActivity extends BridgeActivity {
                     != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1);
-            }
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (this.bridge.getWebView().canGoBack()) {
-            this.bridge.getWebView().goBack();
-        } else {
-            super.onBackPressed();
-        }
-    }
-}
+exit
+.exit
+.exit
