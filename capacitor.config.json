@@ -6,6 +6,9 @@
     "url": "https://thunderblitz-fc.web.app",
     "cleartext": false
   },
+  "android": {
+    "webContentsDebuggingEnabled": true
+  },
   "plugins": {
     "SplashScreen": {
       "launchAutoHide": false,
